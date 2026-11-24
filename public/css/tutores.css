@@ -1,0 +1,18 @@
+/* Somente os atalhos da página principal. */
+.atalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.atalho {
+    padding: 24px;
+    background: white;
+    border: 1px solid #d2d7df;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.atalho:hover {
+    border-color: #174bb0;
+}

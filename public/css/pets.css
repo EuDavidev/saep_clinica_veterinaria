@@ -1,0 +1,23 @@
+/* Somente formulários e tabela de produtos. */
+.campos-produto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+#formulario-busca {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+#campo-busca {
+    flex: 1;
+    min-width: 180px;
+    margin: 0;
+}
+
+#botao-cancelar {
+    background: #526071;
+}

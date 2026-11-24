@@ -1,0 +1,65 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2026-11-23 19:53
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: aluno.alagoinhas
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`tutores` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `senha` VARCHAR(150) NOT NULL,
+  `cpf` VARCHAR(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `tutorescol_UNIQUE` (`nome` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `senha_UNIQUE` (`senha` ASC) VISIBLE,
+  UNIQUE INDEX `tutorescol_UNIQUE` (`cpf` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`pets` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `idade` VARCHAR(10) NOT NULL,
+  `petscol` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `petscol_UNIQUE` (`nome` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`agendamentos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `data` DATE NOT NULL,
+  `procedimento` VARCHAR(45) NOT NULL,
+  `valor` DECIMAL(10,2) NOT NULL,
+  `tutores_id` INT(11) NOT NULL,
+  `pets_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `agendamentoscol_UNIQUE` (`data` ASC) VISIBLE,
+  INDEX `fk_agendamentos_tutores_idx` (`tutores_id` ASC) VISIBLE,
+  INDEX `fk_agendamentos_pets1_idx` (`pets_id` ASC) VISIBLE,
+  CONSTRAINT `fk_agendamentos_tutores`
+    FOREIGN KEY (`tutores_id`)
+    REFERENCES `mydb`.`tutores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_agendamentos_pets1`
+    FOREIGN KEY (`pets_id`)
+    REFERENCES `mydb`.`pets` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

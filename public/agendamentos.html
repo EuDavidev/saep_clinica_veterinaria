@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Estoque · SAEP</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/estoque.css">
+</head>
+<body>
+
+  <header>
+    <strong id="nome-usuario"></strong>
+    <nav aria-label="Navegação principal">
+      <a href="/">Início</a>
+      <a href="/produtos">Produtos</a>
+      <a href="/estoque">Estoque</a>
+    </nav>
+    <button id="botao-sair" type="button">Sair</button>
+  </header>
+  <p id="mensagem" role="status" aria-live="polite"></p>
+  <main id="conteudo" hidden>
+    <h1>Estoque</h1>
+    <form id="formulario-movimento">
+      <div class="campos-movimento">
+        <label>Produto<select id="produto-movimento" name="produto_id" required></select></label>
+        <label>Tipo<select name="tipo"><option value="entrada">Entrada</option><option value="saida">Saída</option></select></label>
+        <label>Quantidade<input name="quantidade" type="number" min="1" step="1" required></label>
+        <label>Data<input name="data" type="date" required></label>
+      </div>
+      <button id="botao-movimentar" type="submit">Registrar movimentação</button>
+    </form>
+    <h2>Saldos em ordem alfabética</h2>
+    <div class="tabela-rolavel">
+      <table>
+        <thead><tr><th>Produto</th><th>Saldo</th><th>Mínimo</th><th>Situação</th></tr></thead>
+        <tbody id="tabela-saldos"></tbody>
+      </table>
+    </div>
+    <h2>Histórico</h2>
+    <div class="tabela-rolavel">
+      <table>
+        <thead><tr><th>Produto</th><th>Tipo</th><th>Quantidade</th><th>Data</th><th>Responsável</th></tr></thead>
+        <tbody id="tabela-historico"></tbody>
+      </table>
+    </div>
+  </main>
+  <script type="module" src="/js/estoque.js"></script>
+</body>
+</html>
