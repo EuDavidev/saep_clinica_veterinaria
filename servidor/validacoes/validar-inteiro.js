@@ -1,13 +1,7 @@
 import exigir from './exigir.js';
-
-export default function validarInteiro(valor, minimo = 0) {
-  const preenchido = String(valor ?? '').trim() !== '';
+export default function validarInteiro(valor) {
+  exigir(/^[1-9]\d*$/.test(String(valor)), 'Selecione um registro valido.');
   const numero = Number(valor);
-
-  exigir(preenchido && typeof valor !== 'boolean', 'Preencha os números.');
-  exigir(Number.isSafeInteger(numero), 'Use somente números inteiros.');
-  exigir(numero >= minimo, 'Número abaixo do mínimo permitido.');
-  exigir(numero <= 1000000000, 'Número acima do limite permitido.');
-
+  exigir(Number.isSafeInteger(numero) && numero <= 2147483647, 'ID invalido.');
   return numero;
 }

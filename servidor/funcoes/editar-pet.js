@@ -1,21 +1,15 @@
 import banco from '../db.js';
 import responder from '../responder.js';
 import exigir from '../validacoes/exigir.js';
-import validarProduto from '../validacoes/validar-produto.js';
-
-export default async function editarProduto(requisicao, resposta) {
-  const produto = validarProduto(requisicao.body);
-
-  // A quantidade não é atualizada aqui. O saldo só muda pela tela Estoque.
-  const [resultado] = await banco.execute(`
-    UPDATE produtos SET
-    nome=?,marca=?,categoria=?,modelo=?,conexao=?,voltagem=?,garantia_meses=?,preco=?,estoque_minimo=?
-    WHERE id=? AND ativo=1`, [
-    produto.nome, produto.marca, produto.categoria, produto.modelo,
-    produto.conexao || null, produto.voltagem || null, produto.garantia_meses,
-    produto.preco, produto.estoque_minimo, requisicao.produtoId
-  ]);
-
-  exigir(resultado.affectedRows > 0, 'Produto não encontrado.');
-  responder(resposta, 200, { mensagem: 'Produto atualizado.' });
+import validarPet from '../validacoes/validar-pet.js';
+export default async function editarPet(req, res) {
+  const p = validarPet(req.body);
+  const [linhas] = await banco.execute('SELECT tutor_id FROM pets WHERE id=?', [req.id]);
+  exigir(linhas.length > 0, 'Pet nao encontrado.', 404);
+  // Mantem o tutor original para nao mudar o responsavel dos agendamentos.
+  exigir(linhas[0].tutor_id === p.tutor_id,
+    'A troca de tutor nao faz parte desta versao.');
+  await banco.execute(`UPDATE pets SET nome=?,especie=?,raca=?,idade=?
+    WHERE id=?`, [p.nome,p.especie,p.raca,p.idade,req.id]);
+  responder(res, 200, { mensagem: 'Pet atualizado.' });
 }

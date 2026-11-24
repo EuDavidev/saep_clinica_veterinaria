@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Login · SAEP</title>
+  <title>Entrar no sistema | Clinica veterinaria</title>
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
   <p id="mensagem" role="status" aria-live="polite"></p>
   <main id="conteudo">
     <h1>Entrar no sistema</h1>
+
     <form id="formulario-login">
-      <label for="email">E-mail</label>
-      <input id="email" name="email" type="email" autocomplete="username" required>
-      <label for="senha">Senha</label>
-      <input id="senha" name="senha" type="password" autocomplete="current-password" required>
+      <label>E-mail<input name="email" type="email" maxlength="150"
+        autocomplete="username" required></label>
+      <label>Senha<input name="senha" type="password" maxlength="200"
+        autocomplete="current-password" required></label>
       <button id="botao-entrar" type="submit">Entrar</button>
     </form>
   </main>

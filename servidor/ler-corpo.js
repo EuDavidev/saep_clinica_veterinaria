@@ -1,23 +1,15 @@
-// Transforma o JSON enviado pelo formulário em um objeto JavaScript.
-export default async function lerCorpo(requisicao) {
-  requisicao.setEncoding('utf8');
+export default async function lerCorpo(req) {
+  req.setEncoding('utf8');
   let texto = '';
-
-  for await (const parte of requisicao) {
+  for await (const parte of req) {
     texto += parte;
     if (Buffer.byteLength(texto) > 32768) {
-      const erro = new Error('Dados enviados excedem o limite permitido.');
-      erro.status = 413;
-      throw erro;
+      throw Object.assign(new Error('Dados muito grandes.'), { status: 413 });
     }
   }
-
-  if (texto === '') return {};
-  const dados = JSON.parse(texto);
-  if (dados === null || typeof dados !== 'object' || Array.isArray(dados)) {
-    const erro = new Error('Envie os dados como um objeto JSON.');
-    erro.status = 400;
-    throw erro;
+  const dados = texto ? JSON.parse(texto) : {};
+  if (!dados || typeof dados !== 'object' || Array.isArray(dados)) {
+    throw Object.assign(new Error('Envie um objeto JSON.'), { status: 400 });
   }
   return dados;
 }

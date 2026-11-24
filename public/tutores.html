@@ -3,30 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Principal · SAEP</title>
+  <title>Gerenciar tutores | Clinica veterinaria</title>
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/principal.css">
 </head>
 <body>
-
-  <header>
-    <strong id="nome-usuario"></strong>
-    <nav aria-label="Navegação principal">
-      <a href="/">Início</a>
-      <a href="/produtos">Produtos</a>
-      <a href="/estoque">Estoque</a>
-    </nav>
-    <button id="botao-sair" type="button">Sair</button>
+  <header><strong id="nome-usuario"></strong>
+    <nav aria-label="Navegacao principal">
+      <a href="/">Inicio</a><a href="/tutores">Tutores</a>
+      <a href="/pets">Pets</a><a href="/agendamentos">Agendamentos</a>
+    </nav><button id="botao-sair" type="button">Sair</button>
   </header>
   <p id="mensagem" role="status" aria-live="polite"></p>
   <main id="conteudo" hidden>
-    <h1>Controle de estoque</h1>
-    <p>Escolha o que você deseja fazer.</p>
-    <section class="atalhos" aria-label="Áreas do sistema">
-      <a class="atalho" href="/produtos"><h2>Produtos</h2><p>Cadastrar, buscar, editar e excluir.</p></a>
-      <a class="atalho" href="/estoque"><h2>Estoque</h2><p>Registrar entradas, saídas e consultar o histórico.</p></a>
-    </section>
+    <h1>Gerenciar tutores</h1>
+
+    <h2 id="titulo-formulario">Novo cadastro</h2>
+    <p id="ajuda-cpf">Ao editar, deixe o CPF vazio para manter o atual.</p>
+    <form id="formulario">
+      <input type="hidden" name="id">
+
+      <label>Nome<input name="nome" maxlength="100" required></label>
+      <label>E-mail<input name="email" type="email" maxlength="150" required></label>
+      <label>Telefone<input name="telefone" type="tel" maxlength="20" required></label>
+      <label>Endereco<input name="endereco" maxlength="200" required></label>
+      <label>CPF<input name="cpf" maxlength="14" inputmode="numeric" required
+        aria-describedby="ajuda-cpf"></label>
+      <div><button id="botao-salvar" type="submit">Salvar</button>
+        <button id="botao-cancelar" type="button">Limpar / cancelar edicao</button></div>
+    </form>
+
+    <form id="formulario-busca" class="busca">
+      <label>Buscar por nome ou e-mail/tutor
+        <input id="campo-busca" maxlength="150"></label>
+      <button type="submit">Buscar</button>
+    </form>
+    <h2>Registros cadastrados</h2>
+    <div class="tabela-rolavel"><table>
+      <thead><tr><th scope="col">Nome</th><th scope="col">E-mail</th><th scope="col">Telefone</th><th scope="col">Endereco</th><th scope="col">CPF</th>
+        <th scope="col">Acao</th></tr></thead>
+      <tbody id="tabela"></tbody>
+    </table></div>
   </main>
-  <script type="module" src="/js/principal.js"></script>
+  <script type="module" src="/js/tutores.js"></script>
 </body>
 </html>

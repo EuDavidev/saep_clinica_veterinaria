@@ -1,8 +1,3 @@
-// Interrompe a operação quando uma regra não é atendida.
-export default function exigir(condicao, mensagem) {
-  if (!condicao) {
-    const erro = new Error(mensagem);
-    erro.status = 400;
-    throw erro;
-  }
+export default function exigir(condicao, mensagem, status = 400) {
+  if (!condicao) throw Object.assign(new Error(mensagem), { status });
 }

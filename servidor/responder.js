@@ -1,8 +1,7 @@
-// Toda resposta da API tem o mesmo formato JSON.
-export default function responder(resposta, status, dados) {
-  resposta.writeHead(status, {
+export default function responder(res, status, dados) {
+  res.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
     'Cache-Control': 'no-store'
   });
-  resposta.end(JSON.stringify(dados));
+  res.end(JSON.stringify(dados));
 }

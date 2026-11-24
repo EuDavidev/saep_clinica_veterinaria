@@ -1,6 +1,4 @@
 import mysql from 'mysql2/promise';
-
-// Este arquivo cuida somente da conexão com o MySQL.
 const banco = mysql.createPool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT || 3306),
@@ -10,5 +8,4 @@ const banco = mysql.createPool({
   connectionLimit: 5,
   dateStrings: true
 });
-
 export default banco;
