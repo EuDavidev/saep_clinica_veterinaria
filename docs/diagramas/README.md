@@ -1,11 +1,5 @@
 # Diagramas do sistema
 
-Imagens PNG exportadas sem marca d'água, com base na clínica implementada neste repositório.
-
-## Fluxograma
-
-![Fluxograma](fluxograma.png)
-
 Representa a navegação geral: login, falha de autenticação, criação/expiração da sessão, acesso aos recursos e saída. A consulta e o preenchimento/gravação de formulários foram resumidos no bloco de operação.
 
 ## Casos de uso
@@ -33,7 +27,7 @@ A seta tracejada `«include»` aponta do caso principal para a ação obrigatori
 
 ## Diagrama entidade relacionamento
 
-![DER](der.png)
+![DER](image.png)
 
 Um tutor pode possuir zero ou vários pets; um pet pode receber zero ou vários agendamentos. Cada pet tem um tutor obrigatório e cada agendamento um pet obrigatório. usuarios autentica os funcionários e fica independente, pois esta versão não registra autoria dos cadastros.
 

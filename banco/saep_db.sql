@@ -1,4 +1,3 @@
--- Banco novo para o exercicio. Nao remove nem migra o schema antigo mydb.
 CREATE DATABASE IF NOT EXISTS saep_db
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE saep_db;

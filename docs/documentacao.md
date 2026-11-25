@@ -6,11 +6,9 @@
 
 **Atualização:** 24/11/2026
 
-**Número da prova:** preencher conforme identificação oficial.
-
 ## 1.1 Requisitos funcionais do sistema
 
-Os quatro requisitos abaixo correspondem às quatro linhas do formulário das fotos. As operações detalhadas foram agrupadas por funcionalidade.
+As operações detalhadas foram agrupadas por funcionalidade.
 
 | ID | Requisito | Descrição |
 | --- | --- | --- |
@@ -48,6 +46,9 @@ Workbench é a ferramenta cliente; MySQL Server é o SGBD. Node.js é o ambiente
 | RN08 | Dados nas telas | Exibir CPF mascarado; não retornar senha, cifra, HMAC ou chaves. |
 
 Criptografia e autenticação são medidas técnicas da atividade. Isoladamente, não comprovam conformidade integral com a LGPD.
+## DER
+
+![alt text](image.png)
 
 ## Telas e operações
 

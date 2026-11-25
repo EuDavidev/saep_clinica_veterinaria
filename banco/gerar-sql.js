@@ -37,4 +37,4 @@ UNION ALL SELECT 'pets', COUNT(*) FROM pets
 UNION ALL SELECT 'agendamentos', COUNT(*) FROM agendamentos;
 `;
 await writeFile(destino, sql, 'utf8');
-console.log('Criado banco/saep_db.sql. Execute no Workbench em um banco novo.');
+console.log('Criado banco/saep_db.sql. Execute no Workbench.');

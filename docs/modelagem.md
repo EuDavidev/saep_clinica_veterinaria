@@ -1,8 +1,8 @@
 # Modelagem e dicionário de dados
 
-**Schema:** `saep_clinica` — MySQL, InnoDB e utf8mb4.
+**Schema:** `saep_clinica` — MySQL
 
-![DER da clínica](diagramas/der.png)
+![alt text](image-1.png)
 
 ## Entidades e cardinalidades
 
@@ -30,7 +30,7 @@ Todos os campos são `NOT NULL`. PKs usam `AUTO_INCREMENT`; FKs têm o mesmo tip
 | tutores.email | VARCHAR(150) | Contato; não é credencial; pode se repetir. |
 | tutores.telefone | VARCHAR(20) | Texto para preservar a formatação. |
 | tutores.endereco | VARCHAR(200) | Endereço em campo único. |
-| tutores.cpf_criptografado | VARCHAR(128) | IV, tag e cifra AES-256-GCM em hexadecimal. |
+| tutores.cpf_criptografado | VARCHAR(128) |
 | tutores.cpf_hash | CHAR(64) | HMAC-SHA-256, UNIQUE. |
 | pets.id | INT | PK. |
 | pets.nome | VARCHAR(100) | Sem UNIQUE. |
