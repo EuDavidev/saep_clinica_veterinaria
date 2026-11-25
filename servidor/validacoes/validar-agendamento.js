@@ -9,6 +9,8 @@ export default function validarAgendamento(dados) {
   const valor = String(dados.valor ?? '').trim().replace(',', '.');
   exigir(/^\d{1,8}(\.\d{1,2})?$/.test(valor),
     'Valor: use um numero nao negativo com ate duas casas decimais.');
-  return { pet_id: validarInteiro(dados.pet_id),
-    data_hora: validarData(dados.data_hora), procedimento, valor };
+  return {
+    pet_id: validarInteiro(dados.pet_id),
+    data_hora: validarData(dados.data_hora), procedimento, valor
+  };
 }

@@ -1,8 +1,8 @@
 # Clínica veterinária — SAEP
 
-Sistema didático de gerenciamento de tutores, pets e agendamentos, com autenticação e proteção do CPF. Código e documentação da clínica disponíveis no repositório **saep_clinica_veterinaria**.
+Sistema de gerenciamento de tutores, pets e agendamentos.
 
-Implementado com JavaScript puro, HTML, CSS, HTTP nativo do Node.js e MySQL. Sem framework ou ORM.
+Sistema feito com JavaScript, HTML, CSS, HTTP nativo do Node.js e MySQL.
 
 ## Funcionalidades
 
@@ -27,7 +27,7 @@ Requisitos: Node.js 22 ou superior compatível, npm e MySQL Server 8.0.16 ou sup
 
    No Linux/macOS, use `cp .env.example .env.local`.
 
-3. Preencha `DB_USER`, `DB_PASSWORD`, host e porta em `.env.local`, conforme sua conexão do Workbench. Mantenha `DB_NAME=saep_clinica`.
+3. Preencha `DB_USER`, `DB_PASSWORD`, host e porta em `.env.local`, conforme sua conexão do Workbench. Mantenha `DB_NAME=saep_db`.
 4. No Workbench, execute **[banco/saep_db.sql](banco/saep_db.sql)** uma única vez em um schema novo/vazio. O script cria quatro tabelas e insere três registros em cada uma. Ele não migra nem remove o banco da loja.
 5. Inicie o servidor:
 

@@ -1,27 +1,131 @@
-:root { font-family: Arial, sans-serif; color: #16332d; background: #f5f8f6; }
-* { box-sizing: border-box; }
-body { margin: 0; }
-header { padding: 18px 5%; background: #164e43; color: white;
-  display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-nav { display: flex; gap: 18px; flex-wrap: wrap; }
-header a { color: white; }
-main { max-width: 1200px; margin: auto; padding: 24px; }
-#mensagem { margin: 16px 5%; min-height: 24px; font-weight: bold; }
-form { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 16px; background: white; padding: 20px; border: 1px solid #c7d6cf;
-  border-radius: 8px; }
-label { display: grid; gap: 7px; }
-input,select,button { font: inherit; padding: 10px; min-height: 44px; }
-button { cursor: pointer; border: 1px solid #164e43; border-radius: 5px;
-  background: #164e43; color: white; margin: 3px; }
-button:disabled { opacity: .6; cursor: wait; }
-:focus-visible { outline: 3px solid #e6a54d; outline-offset: 2px; }
-.busca { margin-top: 24px; }
-.tabela-rolavel { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; background: white; }
-th,td { text-align: left; border: 1px solid #c7d6cf; padding: 12px;
-  vertical-align: top; overflow-wrap: anywhere; }
-th { background: #dfede5; }
-.atalhos { display: grid; gap: 16px; }
-.atalhos a { padding: 24px; background: white; color: #164e43; border-radius: 8px; }
-[hidden] { display: none !important; }
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+:root {
+  font-family: Sora;
+  color: #16332d;
+  background: #f5f8f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  padding: 18px 5%;
+  background: #164e43;
+  color: white;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+header a {
+  color: white;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+#mensagem {
+  margin: 16px 5%;
+  min-height: 24px;
+  font-weight: bold;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #c7d6cf;
+  border-radius: 8px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 10px;
+  min-height: 44px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #164e43;
+  border-radius: 5px;
+  background: #164e43;
+  color: white;
+  margin: 3px;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+:focus-visible {
+  outline: 3px solid #e6a54d;
+  outline-offset: 2px;
+}
+
+.busca {
+  margin-top: 24px;
+}
+
+.tabela-rolavel {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+}
+
+th,
+td {
+  text-align: left;
+  border: 1px solid #c7d6cf;
+  padding: 12px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+th {
+  background: #dfede5;
+}
+
+.atalhos {
+  display: grid;
+  gap: 16px;
+}
+
+.atalhos a {
+  padding: 24px;
+  background: white;
+  color: #164e43;
+  border-radius: 8px;
+}
+
+[hidden] {
+  display: none !important;
+}

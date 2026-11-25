@@ -8,7 +8,6 @@ async function atender(req, res) {
   try {
     const caminho = new URL(req.url, 'http://localhost:3000').pathname;
     if (caminho.startsWith('/api/')) {
-      // O navegador envia JSON nas operacoes que alteram dados.
       if (['POST', 'PUT'].includes(req.method) &&
           !req.headers['content-type']?.startsWith('application/json')) {
         return responder(res, 415, { erro: 'Envie application/json.' });

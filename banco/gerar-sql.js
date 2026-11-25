@@ -2,8 +2,6 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { gerarHash } from '../servidor/senhas.js';
 import { criptografarCpf, hashCpf } from '../servidor/criptografia.js';
 
-// Gera um SQL autocontido com dados ficticios ja protegidos.
-// Nao abre conexao com o MySQL e nao altera banco existente.
 const destino = new URL('./saep_db.sql', import.meta.url);
 let sql = await readFile(new URL('./estrutura.sql', import.meta.url), 'utf8');
 sql += '\nSTART TRANSACTION;\n';
